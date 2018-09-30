@@ -1,0 +1,110 @@
+body {
+    background-color: rgb(194, 228, 255);
+	font-family: 'Nova Flat', cursive;
+	-webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.jumbotron {
+    margin-top: 10px;
+    background-color: rgb(28, 78, 119);
+	border: 2px solid rgb(255, 255, 255);
+	border-radius: 10px;
+	-webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+
+}
+
+.card-img-top {
+    height:250px;
+    
+}
+
+form[role=login] {
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.row {
+    margin: auto auto 20px auto;
+}
+
+.list-group-item {
+font-size: .8em;
+font-weight: bolder;
+}
+
+.card {
+    border: 3px solid black;
+    border-radius: 0px;
+    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.card-default {
+    background-color: rgb(28, 78, 119);
+    border-radius: 0px;
+}
+
+.card-header, .card-footer {
+    background-color: rgb(194, 228, 255);
+    color:rgb(0, 0, 0);
+}
+
+.chat-header, .chat-footer {
+    background-color: rgb(28, 78, 119);
+    color:white;
+}
+
+#chat-log {
+    height: 250px;
+    background-color: rgb(194, 228, 255);
+    color: rgb(0, 0, 0);
+    overflow: scroll;
+}
+
+
+#chat-log li {
+    padding: 2px;
+    margin-left: 10px;
+    text-align: left;
+    font-size: 1.2em;
+}
+
+.user-1 {
+    color: red;
+}
+
+.user-2 {
+    color: blue;
+}
+
+.player, .feedback {
+    background-color: rgb(28, 78, 119);
+    color: white;
+    border: 2px rgb(255, 255, 255) solid;
+    padding: 10px;
+    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.pre-login, 
+.pending-login, 
+.post-login, 
+.welcome, 
+.selections, 
+.pending-selection, 
+.selection-made, 
+.selection-reveal, 
+.stats, 
+.chat-row {
+    display: none;
+}
+
+.selection-reveal {
+    text-transform: capitalize;
+}

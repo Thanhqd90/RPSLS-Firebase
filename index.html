@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- viewport meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nova+Flat" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+
+    <!-- Browser title -->
+    <title>Rock Paper Scissors Lizard Spock (Online)</title>
+</head>
+
+<body>
+    <div class="container-fluid text-center"> <!--Master container start -->
+        <!-- Navbar with icon, banner and modals -->
+        <nav class="navbar bg-info">
+            <img height="175px" width="225px" src="./assets/images/icon.png">
+            <img height="160px" src="./assets/images/banner.png">
+
+            <div class="btn-group mr-2" role="group" aria-label="First group">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#howToPlay1">How to Play (Image)</button>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#howToPlay2">How to Play (Video)</button>
+            </div>
+        </nav>
+
+    <!-- Top section -->
+        <div class="jumbotron"> <!-- Jumbostron start -->
+            <div class="card-deck justify-content-center">
+            <!-- Rock Card -->
+                <div class="card border-dark mb-3" style="max-width: 18rem;">
+                    <div class="card-header">
+                        <h4>Rock</h4>
+                    </div>
+                <img class="card-img-top" src="./assets/images/rock.png" alt="Card image cap">
+                    <div class="card-body text-dark">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Rock crushes scissors</li>
+                            <li class="list-group-item">Rock crushes lizard</li>
+                            <li class="list-group-item">Paper covers rock</li>
+                            <li class="list-group-item">Spock vaporizes rock</li>
+                        </ul>
+                    </div>
+                </div>
+            <!-- Paper Card -->
+                <div class="card border-dark mb-3" style="max-width: 18rem;">
+                    <div class="card-header">
+                        <h4>Paper</h4>
+                    </div>
+                <img class="card-img-top" src="./assets/images/paper.png" alt="Card image cap">
+                    <div class="card-body text-dark">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Paper covers rock</li>
+                            <li class="list-group-item">Paper disproves Spock</li>
+                            <li class="list-group-item">Scissors cut paper</li>
+                            <li class="list-group-item">Lizard eats paper</li>
+                        </ul>
+                    </div>
+                </div>
+            <!-- Scissors Card -->
+                <div class="card border-dark mb-3" style="max-width: 18rem;">
+                    <div class="card-header">
+                        <h4>Scissors</h4>
+                    </div>
+                <img class="card-img-top" src="./assets/images/scissors.png" alt="Card image cap">
+                    <div class="card-body text-dark">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Scissors cuts paper</li>
+                            <li class="list-group-item">Scissors decapitates lizard</li>
+                            <li class="list-group-item">Rock crushes scissors</li>
+                            <li class="list-group-item">Spock smashes scissors</li>
+                        </ul>
+                    </div>
+                </div>
+            <!-- Lizard Card -->
+                <div class="card border-dark mb-3" style="max-width: 18rem;">
+                    <div class="card-header">
+                        <h4>Lizard</h4>
+                    </div>
+                <img class="card-img-top" src="./assets/images/lizard.png" alt="Card image cap">
+                    <div class="card-body text-dark">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Lizard eats paper</li>
+                            <li class="list-group-item">Lizard poisons Spock</li>
+                            <li class="list-group-item">Rock crushes lizard</li>
+                            <li class="list-group-item">Scissors decapitates lizard</li>
+                        </ul>
+                    </div>
+                </div>
+            <!-- Spock Card -->
+                <div class="card border-dark mb-3" style="max-width: 18rem;">
+                    <div class="card-header">
+                        <h4>Spock</h4>
+                    </div>
+                <img class="card-img-top" src="./assets/images/spock.png" alt="Card image cap">
+                    <div class="card-body text-dark">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Spock smashes scissors</li>
+                            <li class="list-group-item">Spock vaporizes rock</li>
+                            <li class="list-group-item">Paper disproves Spock</li>
+                            <li class="list-group-item">Lizard poisons Spock</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- Jumbostron start -->
+
+    <!-- Section 2 - Log in form -->
+        <div class="row"> <!-- Row Start-->
+            <div class="col-12 pre-connection">
+                Connecting...
+            </div>
+    <!-- Pre login -->
+            <div class="col-12 pre-login">
+                <form role="login">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="player-name" placeholder="Enter your name">
+                        <span class="input-group-btn">
+                            <button class="btn btn-dark" id="login" type="submit"><i class="fas fa-user-friends"></i> Login</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+    <!-- Welcome message upon successful login -->
+            <div class="col-12 welcome">
+                <h2>Welcome <span id="player-name-display"></span>, you are player <span id="player-number"></span></h2>
+            </div>
+    <!-- Pending login -->
+            <div class="col-12 pending-login">
+                There are already 2 players playing, you can play when one player quits.
+            </div>
+        </div> <!-- Row End-->
+
+    <!-- Gameplayer area + Feedback -->
+        <div class="row"> <!-- Row Start-->
+            <div class="col-4 player">
+                <h3 id="player-1">Waiting for Player 1 to sign in</h3>
+                <p class="stats p1-stats">
+                    <strong>Wins:</strong>
+                    <span id="p1-wins">0</span>
+                    <strong>Losses:</strong>
+                    <span id="p1-losses"></span>
+                </p>
+                <p class="col-4 selections p1-selections">
+                    <div class="list-group">
+                        <button id="rock" data-player="1" class="btn btn-block selection btn-dark">Rock <i class="fas fa-hand-rock"></i></button>
+                        <button id="paper" data-player="1" class="btn btn-block selection btn-warning">Paper <i class="fas fa-hand-paper"></i></button>
+                        <button id="scissors" data-player="1" class="btn btn-block selection btn-danger">Scissors
+                            <i class="fas fa-hand-scissors"></i></button>
+                        <button id="lizard" data-player="1" class="btn btn-block selection btn-success">Lizard
+                            <i class="fas fa-hand-lizard"></i></button>
+                        <button id="spock" data-player="1" class="btn btn-block selection btn-info">Spock <i class="fas fa-hand-spock"></i></button>
+                    </div>
+                </p>
+                <p class="pending-selection p1-pending-selection">
+                    Waiting on player 2 to choose
+                </p>
+                <p class="selection-made p1-selection-made">
+                    Player 1 ready
+                </p>
+                <button class="btn btn-block selection btn-secondary selection-reveal p1-selection-reveal">
+
+                </button>
+            </div>
+            <div class="col-4">
+                <h3 id="feedback"></h3>
+            </div>
+            <div class="col-4 player">
+                <h3 id="player-2">Waiting for Player 2 to sign in</h3>
+                <p class="stats p2-stats">
+                    <strong>Wins:</strong>
+                    <span id="p2-wins">0</span>
+                    <strong>Losses:</strong>
+                    <span id="p2-losses"></span>
+                </p>
+                <p class="col-4 list-group selections p2-selections">
+                    <div class="list-group">
+                        <button id="rock" data-player="2" class="btn btn-block selection btn-dark">Rock <i class="fas fa-hand-rock"></i></button>
+                        <button id="paper" data-player="2" class="btn btn-block selection btn-warning">Paper <i class="fas fa-hand-paper"></i></button>
+                        <button id="scissors" data-player="2" class="btn btn-block selection btn-danger">Scissors
+                            <i class="fas fa-hand-scissors"></i></button>
+                        <button id="lizard" data-player="2" class="btn btn-block selection btn-success">Lizard
+                            <i class="fas fa-hand-lizard"></i></button>
+                        <button id="spock" data-player="2" class="btn btn-block selection btn-info">Spock <i class="fas fa-hand-spock"></i></button>
+                    </div>
+                </p>
+                <p class="pending-selection p2-pending-selection">
+                    Waiting on player 1 to choose
+                </p>
+                <p class="selection-made p2-selection-made">
+                    Player 2 ready
+                </p>
+                <button class="btn btn-block selection btn-secondary selection-reveal p2-selection-reveal">
+
+                </button>
+            </div>
+        </div> <!-- Row End-->
+
+        <!-- Chat Window -->
+        <div class="row post-login"> <!-- Row Start-->
+            <div class="card card-default">
+                <div class="card-heading"><h3 class="card-header chat-header text-center">Chat Window</h3></div>
+        <!-- Chat body -->
+            <ul id="chat-log" class="list-unstyled text-left">
+            <!-- Chat messages append here -->
+                </ul>
+                <form role="chat" class="chat-footer card-footer">
+                    <div class="input-group">
+                        <input type="text" placeholder="Chat with your opponent" class="form-control" id="chat">
+                        <span class="input-group-btn">
+                            <button class="btn btn-info" id="send-chat" type="submit"><i class="far fa-comment"></i>Send</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div> <!-- Row End -->
+    </div> <!-- Master container end -->
+
+    <!-- Modal Image -->
+    <div class="modal fade" id="howToPlay1" tabindex="-1" role="dialog" aria-labelledby="howToPlayModalLabel1"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img class="img-fluid" height="350px" src="https://res.cloudinary.com/teepublic/image/private/s--FmJZnCzA--/t_Preview/b_rgb:262c3a,c_limit,f_jpg,h_630,q_90,w_630/v1508274791/production/designs/1979789_1.jpg">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-block" data-dismiss="modal">Close Window</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Video -->
+    <div class="modal fade" id="howToPlay2" tabindex="-1" role="dialog" aria-labelledby="howToPlayModalLabel2"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content ">
+
+                <div class="modal-body">
+                    <iframe width="460" height="450" src="https://www.youtube.com/embed/_PUEoDYpUyQ"></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-block" data-dismiss="modal">Close Window</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="assets/javascript/game.js"></script>
+
+</body>
+</html>
